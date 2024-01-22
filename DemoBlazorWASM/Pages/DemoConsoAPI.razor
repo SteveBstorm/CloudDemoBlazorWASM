@@ -1,0 +1,24 @@
+﻿@page "/demoapi"
+@using DemoBlazorWASM.Models;
+<h3>DemoConsoAPI</h3>
+
+@* <p>Valeur de number: @number</p>
+
+<button class="btn btn-info" @onclick="Increment">+</button>
+
+<hr />
+<Children MyProperty="@number"></Children> *@
+
+<ul>
+    @foreach(Movie m in MaListe)
+    {
+    <li>
+        @m.Title
+    </li>
+        
+    }
+</ul>
+
+@code {
+
+}

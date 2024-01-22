@@ -1,0 +1,12 @@
+﻿<h3>Children</h3>
+
+<p>Valeur du paramètre : @MyProperty</p>
+@code {
+    [Parameter]
+    public int MyProperty { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        MyProperty *= 2;
+    }
+}
