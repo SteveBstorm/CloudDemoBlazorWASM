@@ -1,0 +1,45 @@
+﻿@page "/register"
+@using Microsoft.AspNetCore.Components.Authorization
+<h3>Créer un compte</h3>
+
+@if (!string.IsNullOrEmpty(ResolveMessage))
+{
+    <h4>@ResolveMessage</h4>
+}
+ <AuthorizeView>
+    <NotAuthorized>
+        
+    <EditForm Model="myForm" OnValidSubmit="OnSubmit" Context="formContext">
+        <DataAnnotationsValidator />
+        
+        <div class="form-group">
+            <label class="col-form-label">E-mail</label>
+            <InputText type="email" class="form-control" @bind-Value="myForm.Email"/>
+            <ValidationMessage For="() => myForm.Email" />
+        </div>
+        <div class="form-group">
+            <label class="col-form-label">Pseudo</label>
+            <InputText type="text" class="form-control" @bind-Value="myForm.Pseudo" />
+            <ValidationMessage For="() => myForm.Pseudo" />
+        </div>
+        <hr />
+        <div class="form-group">
+            <label class="col-form-label">Mot de passe</label>
+            <InputText type="password" class="form-control" @bind-Value="myForm.Password" />
+            <ValidationMessage For="() => myForm.Password" />
+        </div>
+        <div class="form-group">
+            <label class="col-form-label">Confirmation</label>
+            <InputText type="password" class="form-control" @bind-Value="myForm.ConfirmationPassword" />
+            <ValidationMessage For="() => myForm.ConfirmationPassword" />
+        </div>
+        <button class="btn btn-outline-success" type="submit">Valider</button>
+    </EditForm>
+    </NotAuthorized>
+    <Authorized>
+        Vous êtes déjà connecté
+    </Authorized>
+</AuthorizeView>
+@code {
+
+}

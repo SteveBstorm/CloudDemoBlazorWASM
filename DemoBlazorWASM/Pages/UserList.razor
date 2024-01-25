@@ -1,0 +1,28 @@
+﻿@page "/userlist"
+@using DemoBlazorWASM.Models
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+@inject NavigationManager nav
+<AuthorizeView>
+    <Authorized>
+        <h3>UserList</h3>
+        <label class="text-info">Bonjour : @context.User.FindFirst(ClaimTypes.Name).Value</label>
+        <ul class="list-group">
+            @foreach (User u in userList)
+            {
+                <li class="list-group-item">
+                    <p>@u.Pseudo</p>
+                    <p>@u.Email</p>
+
+                </li>
+            }
+
+        </ul>
+    </Authorized>
+    <NotAuthorized>
+        @if (true)
+        {
+            nav.NavigateTo("login");
+        }
+    </NotAuthorized>
+</AuthorizeView>

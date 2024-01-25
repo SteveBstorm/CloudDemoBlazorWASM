@@ -1,0 +1,27 @@
+﻿@page "/login"
+<h3>Login</h3>
+@if (!string.IsNullOrEmpty(ResolveMessage))
+{
+    <h4>@ResolveMessage</h4>
+}
+
+<EditForm Model="myForm" OnValidSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+    <div class="form-group">
+        <label class="col-form-label">E-mail</label>
+        <InputText type="email" class="form-control" @bind-Value="myForm.Email" />
+        <ValidationMessage For="() => myForm.Email" />
+    </div>
+    
+    <div class="form-group">
+        <label class="col-form-label">Mot de passe</label>
+        <InputText type="password" class="form-control" @bind-Value="myForm.Password" />
+        <ValidationMessage For="() => myForm.Password" />
+    </div>
+    
+    
+    <button class="btn btn-outline-success" type="submit">Valider</button>
+</EditForm>
+@code {
+
+}
