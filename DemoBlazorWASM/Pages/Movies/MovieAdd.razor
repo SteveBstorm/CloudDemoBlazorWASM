@@ -1,0 +1,9 @@
+﻿<h3>MovieAdd</h3>
+<EditForm Model="form" OnSubmit="Submit">
+    Titre : <InputText @bind-Value="form.Title" />
+    Année de sortie : <InputNumber @bind-Value="form.ReleaseYear" />
+    <button type="submit">Valider</button>
+</EditForm>
+@code {
+
+}

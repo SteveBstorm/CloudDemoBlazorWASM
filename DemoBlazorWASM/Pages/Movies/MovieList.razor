@@ -1,0 +1,31 @@
+﻿@page "/movies"
+@using DemoBlazorWASM.Models
+<h3>MovieList</h3>
+<div class="content">
+    <div class="left">
+        @if (Liste != null)
+        {
+            <ul class="list-group">
+                @foreach (Movie m in Liste)
+                {
+                    <li class="list-group-item">
+                        @m.Title
+                        <button @onclick="() => Detail(m.Id)" class="btn btn-outline-info btn-sm">Détails</button>
+                    </li>
+                }
+            </ul>
+
+        }
+        else
+        {
+            <p>Attends ça arrive...</p>
+        }
+    </div>
+    <div class="right">
+        <MovieAdd></MovieAdd>
+        @if(SelectedId > 0)
+        {
+            <MovieDetail Id="SelectedId"></MovieDetail>
+        }
+    </div>
+</div>

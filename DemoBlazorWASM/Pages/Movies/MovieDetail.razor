@@ -1,0 +1,15 @@
+﻿<h3>MovieDetail</h3>
+@if (currentMovie != null)
+{
+    <p>Titre : @currentMovie.Title</p>
+    <p>Année de sortie : @currentMovie.ReleaseYear</p>
+    <p>Id : @currentMovie.Id</p>
+
+}
+else
+{
+    <p>C'est pas encore là oO</p>
+}
+@code {
+
+}

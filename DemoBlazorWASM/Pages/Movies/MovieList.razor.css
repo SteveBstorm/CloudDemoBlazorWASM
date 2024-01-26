@@ -1,0 +1,15 @@
+﻿.content {
+    display : flex;
+    flex-direction : row;
+    min-width : 80%;
+}
+
+.left {
+   min-width : 40%;
+   margin : 10px;
+}
+
+.right {
+    min-width: 40%;
+    margin : 10px;
+}
